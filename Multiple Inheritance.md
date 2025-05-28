@@ -1,12 +1,11 @@
 # Exp.No:23  
 ## Multiple Inheritance
 
----
 
 ### AIM  
 To write a Python program to get the name, attendance, and ID of a student and check if they are eligible for the next module using multiple inheritance. If attendance > 80, the student is eligible; otherwise, not eligible.
 
----
+
 
 ### ALGORITHM
 
@@ -27,19 +26,39 @@ To write a Python program to get the name, attendance, and ID of a student and c
 9. Call the `check_eligibility` method on the `student` object and print the result.
 10. Terminate the program.
 
----
+
 
 ### PROGRAM
 
 ```
-
+class Student:
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+    def get_student_info(self):
+        return f"Name: {self.name}, ID: {self.student_id}"
+class Attendance(Student):
+    def __init__(self, name, student_id, attendance):
+        super().__init__(name, student_id)  
+        self.attendance = attendance
+    def check_eligibility(self):
+        if self.attendance > 80:
+            return f"{self.name}\n{self.student_id}\nEligible for Module Exam"
+        else:
+            return f"{self.name}\n{self.student_id}\nNot Eligible for Module Exam"
+name = input()
+student_id = int(input())
+attendance = int(input())
+student = Attendance(name, student_id, attendance)
+print(student.check_eligibility())
 ```
 
 ### OUTPUT
+![image](https://github.com/user-attachments/assets/2dc5e789-e4c3-4ef3-98fc-196abb04612b)
 
 
 ### RESULT
-
+Thus the python program to get the name, attendance and Id of a student and check they are eligible for Next Module using multiple inheritance,was implemented and executed successfully.
 
 
 
